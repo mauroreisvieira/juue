@@ -1,4 +1,5 @@
-import h, { Fragment } from '../lib/index';
+/** @jsx h */
+import h, { Fragment, render } from '../lib/index';
 function Headline() {
     return (
         <Fragment>
@@ -11,7 +12,7 @@ function Headline() {
         </Fragment>
     );
 }
-function Main() {
+function App() {
     return (
         <div>
             <Headline />
@@ -38,5 +39,5 @@ function Main() {
         </div>
     );
 }
-const app = document.querySelector('#app');
-app.appendChild(Main());
+
+render(<App />, document.body);

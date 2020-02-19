@@ -1,7 +1,4 @@
-import options from './options';
-
 export function render(vnode: any, parentDom?: HTMLElement) {
-    if (options._root) options._root(vnode, parentDom);
     if (vnode.split) return document.createTextNode(vnode);
     const node = document.createElement(vnode.nodeName);
 

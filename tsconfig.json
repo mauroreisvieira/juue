@@ -1,8 +1,8 @@
 {
     "compilerOptions": {
-        "module": "commonjs",
         "declaration": true,
-        "target": "es6",
+        "target": "esnext",
+        "module": "esnext",
         "outDir": "lib",
         "lib": ["es7", "dom"],
         "esModuleInterop": true,

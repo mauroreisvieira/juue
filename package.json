@@ -17,8 +17,8 @@
     "author": "Mauro Reis Vieira <mauroreisvieira@gmail.com>",
     "license": "MIT",
     "scripts": {
-        "build": "tsc",
-        "watch": "tsc -w",
+        "dev": "rollup -c -w",
+        "build": "rollup -c",
         "demo": "babel demo/main.jsx --out-dir scripts",
         "prettier": "prettier --write \"src/*.ts?(x)\"",
         "lint": "eslint \"src/*.ts\" \"src/**/*.ts\"",
@@ -37,6 +37,7 @@
         "@babel/preset-env": "7.4.5",
         "@commitlint/cli": "^8.3.5",
         "@commitlint/config-conventional": "^8.3.4",
+        "@rollup/plugin-node-resolve": "^7.1.1",
         "@typescript-eslint/eslint-plugin": "2.15.0",
         "@typescript-eslint/parser": "2.15.0",
         "babel-eslint": "^10.0.3",
@@ -44,6 +45,10 @@
         "eslint": "6.8.0",
         "husky": "^4.2.1",
         "prettier": "^1.18.2",
+        "rollup": "^1.17.0",
+        "rollup-plugin-commonjs": "^10.0.1",
+        "rollup-plugin-terser": "^4.0.4",
+        "rollup-plugin-typescript2": "^0.22.0",
         "typescript": "^3.7.2"
     }
 }

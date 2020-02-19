@@ -42,7 +42,6 @@ export function Fragment(props: any) {
 }
 
 export function createNode(type: any, props: any, key: any, ref: any) {
-
     const vnode = {
         type,
         props,

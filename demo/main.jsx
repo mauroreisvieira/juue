@@ -1,5 +1,5 @@
 /** @jsx h */
-import h, { Fragment, render } from '../lib/index';
+import h, { Fragment, render } from '../lib/vivaldi.cjs';
 function Headline() {
     return (
         <Fragment>
@@ -40,4 +40,5 @@ function App() {
     );
 }
 
+console.log(document.body);
 render(<App />, document.body);

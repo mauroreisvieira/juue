@@ -1,8 +1,8 @@
 /** @jsx h */
-import h, { Fragment, render } from '../lib/index';
+import { h, render } from '../lib/vivaldi.esm.js';
 
 function Headline() {
-  return h(Fragment, null, h("h1", {
+  return h('div', null, h("h1", {
     className: "headline"
   }, "Hello this in an h1", h("br", null), "new line"), h("h2", null, "Second Headline"));
 }
@@ -17,4 +17,5 @@ function App() {
   }, "Click Me!"));
 }
 
-render(h(App, null), document.body);
+console.log(render);
+render(h(Headline, null), document.body);

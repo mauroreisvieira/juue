@@ -1,4 +1,6 @@
 export function render(vnode: any, parentDom?: HTMLElement) {
+    console.log(vnode);
+    console.log(parentDom);
     if (vnode.split) return document.createTextNode(vnode);
     const node = document.createElement(vnode.nodeName);
 

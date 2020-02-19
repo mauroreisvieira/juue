@@ -1,8 +1,8 @@
 /** @jsx h */
-import h, { Fragment, render } from '../lib/vivaldi.cjs';
+import { h, render } from '../lib/vivaldi.cjs';
 
 function Headline() {
-  return h(Fragment, null, h("h1", {
+  return h("div", null, h("h1", {
     className: "headline"
   }, "Hello this in an h1", h("br", null), "new line"), h("h2", null, "Second Headline"));
 }

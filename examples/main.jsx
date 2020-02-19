@@ -1,15 +1,15 @@
 /** @jsx h */
-import h, { Fragment, render } from '../lib/vivaldi.cjs';
+import { h, render } from '../lib/vivaldi.cjs';
 function Headline() {
     return (
-        <Fragment>
+        <div>
             <h1 className="headline">
                 Hello this in an h1
                 <br />
                 new line
             </h1>
             <h2>Second Headline</h2>
-        </Fragment>
+        </div>
     );
 }
 function App() {

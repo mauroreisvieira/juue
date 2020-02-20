@@ -1,5 +1,5 @@
-import { applyRef } from '../util';
-import options from '../options';
+import { applyRef } from './util';
+import options from './options';
 
 export function removeNode(node: any) {
     let parentNode = node.parentNode;

@@ -1,5 +1,3 @@
-import { createElement as Vivaldi } from './create-element';
 export { render } from './render';
-export { Fragment, createRef, } from './create-element';
-export default Vivaldi;
+export { createElement, createElement as h, createRef, } from './create-element';
 export { Component } from './component';

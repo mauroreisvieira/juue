@@ -1,4 +1,4 @@
-import { setAccessor } from './dom';
+import { diffAttributes } from './diff';
 
 export function render(vnode: any, parentDom?: HTMLElement) {
 
@@ -15,9 +15,7 @@ export function render(vnode: any, parentDom?: HTMLElement) {
     const { children, ...reset } = vnode.props;
     const attributes = reset || {};
 
-    Object.keys(attributes).forEach((name: string) => {
-        setAccessor(node, name, attributes[name]);
-    });
+    diffAttributes(node, name, attributes);
 
     const childrens = children || [];
     childrens.forEach((child: any) => {

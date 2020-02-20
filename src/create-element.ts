@@ -17,7 +17,7 @@ export function createElement(type: any, props: any, ...args: any) {
         }
     }
 
-    return createVNode(
+    return virtualNode(
         type,
         normalizedProps,
         props && props.key,
@@ -29,11 +29,7 @@ export function createRef() {
     return {};
 }
 
-export function Fragment(props: any) {
-    return props.children;
-}
-
-export function createVNode(type: any, props: any, key: any, ref: any) {
+export function virtualNode(type: any, props: any, key: any, ref: any) {
     const vnode = {
         type,
         props,

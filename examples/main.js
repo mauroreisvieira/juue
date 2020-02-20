@@ -1,26 +1,35 @@
-import Vivaldi, { Component, render } from '../lib/vivaldi.esm.js';
+import { Component, h, render } from '../lib/vivaldi.esm.js';
 
 class Headline extends Component {
+  constructor() {
+    super();
+    console.log(this.props);
+  }
+
   render() {
-    return Vivaldi("div", null, Vivaldi("h1", {
+    return h("div", null, h("h1", {
       id: "testes",
       className: "headline"
-    }, "Hello this in an h1", Vivaldi("br", null), "new line"), Vivaldi("h2", null, "Second Headline"));
+    }, "Hello this in an h1", h("br", null), "new line"), h("h2", null, "Second Headline"));
   }
 
 }
 
 class App extends Component {
   render() {
-    return Vivaldi("div", null, Vivaldi(Headline, null), Vivaldi("p", null, "Lorem ipsum"), Vivaldi("ul", null, Vivaldi("li", null, Vivaldi("a", {
+    return h("div", null, h(Headline, {
+      isValid: "sasa"
+    }), h("p", null, "Lorem ipsum"), h("ul", null, h("li", null, h("a", {
       href: ""
-    }, "anchor")), Vivaldi("li", null, "More")), Vivaldi("ol", null, Vivaldi("li", null, "item")), Vivaldi("button", {
-      onClick: () => {
-        console.log('dsd');
-      }
+    }, "anchor")), h("li", null, "More")), h("ol", null, h("li", null, "item")), h("button", {
+      onClick: this.handleClick
     }, "Click Me!"));
+  }
+
+  handleClick() {
+    console.log('dsd');
   }
 
 }
 
-render(Vivaldi(App, null), document.body);
+render(h(App, null), document.body);

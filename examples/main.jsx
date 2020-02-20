@@ -1,6 +1,12 @@
-import Vivaldi, { Component, render } from '../lib/vivaldi.esm.js';
+import { Component, h, render } from '../lib/vivaldi.esm.js';
 
 class Headline extends Component {
+
+    constructor() {
+        super();
+        console.log(this.props);
+    }
+
     render() {
         return (
             <div>
@@ -19,7 +25,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Headline />
+                <Headline isValid="sasa" />
                 <p>Lorem ipsum</p>
                 <ul>
                     <li>
@@ -30,15 +36,13 @@ class App extends Component {
                 <ol>
                     <li>item</li>
                 </ol>
-                <button
-                    onClick={() => {
-                        console.log('dsd');
-                    }}
-                >
-                    Click Me!
-                </button>
+                <button onClick={this.handleClick}>Click Me!</button>
             </div>
         );
+    }
+
+    handleClick() {
+        console.log('dsd');
     }
 }
 

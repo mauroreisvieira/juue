@@ -1,21 +1,13 @@
 import options from './options';
 
-export function createElement(type: any, props: any, children: any) {
+export function createElement(type: any, props: any, ...args: any) {
     const normalizedProps: any = {};
 
     for (const i in props) {
         if (i !== 'key' && i !== 'ref') normalizedProps[i] = props[i];
     }
 
-    if (arguments.length > 3) {
-        children = [children];
-        for (let i = 3; i < arguments.length; i++) {
-            children.push(arguments[i]);
-        }
-    }
-    if (children != null) {
-        normalizedProps.children = children;
-    }
+    if (args.length) normalizedProps.children = [].concat(...args);
 
     if (typeof type === 'function' && type.defaultProps != null) {
         for (let i in type.defaultProps) {
@@ -25,7 +17,7 @@ export function createElement(type: any, props: any, children: any) {
         }
     }
 
-    return createNode(
+    return createVNode(
         type,
         normalizedProps,
         props && props.key,
@@ -41,7 +33,7 @@ export function Fragment(props: any) {
     return props.children;
 }
 
-export function createNode(type: any, props: any, key: any, ref: any) {
+export function createVNode(type: any, props: any, key: any, ref: any) {
     const vnode = {
         type,
         props,

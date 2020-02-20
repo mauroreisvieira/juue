@@ -1,11 +1,10 @@
-/** @jsx h */
-import { Component, h, render } from '../lib/vivaldi.cjs.js';
+import Vivaldi, { Component, render } from '../lib/vivaldi.esm.js';
 
 class Headline extends Component {
     render() {
         return (
             <div>
-                <h1 className="headline">
+                <h1 id="testes" className="headline">
                     Hello this in an h1
                     <br />
                     new line
@@ -32,8 +31,8 @@ class App extends Component {
                     <li>item</li>
                 </ol>
                 <button
-                    ref={node => {
-                        node.addEventListener('click', console.log);
+                    onClick={() => {
+                        console.log('dsd');
                     }}
                 >
                     Click Me!
@@ -43,6 +42,4 @@ class App extends Component {
     }
 }
 
-console.log(document.body);
-console.log(App);
 render(<App />, document.body);

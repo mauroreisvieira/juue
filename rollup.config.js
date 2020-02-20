@@ -24,7 +24,6 @@ export default {
     output: outputConfigs,
     plugins: [
         typescript({
-            tsconfig: path.resolve(__dirname, './tsconfig.json'),
             useTsconfigDeclarationDir: true,
         }),
         resolve({

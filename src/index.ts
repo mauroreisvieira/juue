@@ -1,8 +1,11 @@
+import { createElement as Vivaldi } from './create-element';
+
+Vivaldi.prototype.createElement = Vivaldi;
+
 export { render } from './render';
 export {
-    createElement,
-    createElement as h,
     Fragment,
     createRef,
 } from './create-element';
+export default Vivaldi;
 export { Component } from './component';

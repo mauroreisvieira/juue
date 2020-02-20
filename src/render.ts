@@ -1,12 +1,31 @@
-export function render(vnode: any, parentDom?: HTMLElement) {
-    console.log(vnode);
-    console.log(parentDom);
-    if (vnode.split) return document.createTextNode(vnode);
-    const node = document.createElement(vnode.nodeName);
+import { setAccessor } from './dom';
 
-    let a = vnode.attributes || {};
-    Object.keys(a).forEach(k => node.setAttribute(k, a[k]));
-    (vnode.children || []).forEach((c: any) => node.appendChild(render(c)));
+export function render(vnode: any, parentDom?: HTMLElement) {
+
+
+    if (vnode.ref) {
+        console.log(vnode.ref.node);
+    }
+
+    if (typeof vnode.type === 'function') {
+        const aux = new vnode.type();
+        vnode = aux.render();
+    }
+    const node = document.createElement(vnode.type);
+    const { children, ...reset } = vnode.props;
+    const attributes = reset || {};
+
+    Object.keys(attributes).forEach((name: string) => {
+        setAccessor(node, name, attributes[name]);
+    });
+
+    const childrens = children || [];
+    childrens.forEach((child: any) => {
+        if (typeof child === 'string') {
+            return node.appendChild(document.createTextNode(child));
+        }
+        return node.appendChild(render(child));
+    });
 
     return parentDom ? parentDom.appendChild(node) : node;
 }

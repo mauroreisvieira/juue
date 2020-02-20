@@ -1,11 +1,6 @@
 import { Component, h, render } from '../lib/vivaldi.esm.js';
 
 class Headline extends Component {
-  constructor() {
-    super();
-    console.log(this.props);
-  }
-
   render() {
     return h("div", null, h("h1", {
       id: "testes",

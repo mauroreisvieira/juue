@@ -1,16 +1,15 @@
-import { diffAttributes } from './diff';
+import { diffAttributes, diffContent } from './diff';
 
 export function render(vnode: any, parentDom?: HTMLElement) {
-
-
     if (vnode.ref) {
         console.log(vnode.ref.node);
     }
 
     if (typeof vnode.type === 'function') {
-        const aux = new vnode.type();
-        vnode = aux.render();
+        const element = new vnode.type();
+        vnode = element.render();
     }
+    console.log(vnode.props);
     const node = document.createElement(vnode.type);
     const { children, ...reset } = vnode.props;
     const attributes = reset || {};
@@ -20,7 +19,7 @@ export function render(vnode: any, parentDom?: HTMLElement) {
     const childrens = children || [];
     childrens.forEach((child: any) => {
         if (typeof child === 'string') {
-            return node.appendChild(document.createTextNode(child));
+            return node.appendChild(diffContent(node, child));
         }
         return node.appendChild(render(child));
     });

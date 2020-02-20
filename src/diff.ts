@@ -24,3 +24,12 @@ export function diffAttributes(dom: any, attrs: any, old: any) {
         }
     }
 }
+
+export function diffContent(dom: any, vnode: string) {
+    // empty values (null, undefined, booleans) render as empty Text nodes
+    if (vnode == null || typeof vnode === 'boolean') vnode = '';
+
+    if (typeof vnode === 'string' || typeof vnode === 'number') {
+        return dom.appendChild(document.createTextNode(vnode));
+    }
+}

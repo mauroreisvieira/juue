@@ -29,6 +29,11 @@ export function createRef() {
     return {};
 }
 
+export function Fragment(props: any) {
+    return props.children;
+}
+
+
 export function virtualNode(type: any, props: any, key: any, ref: any) {
     const vnode = {
         type,

@@ -1,22 +1,15 @@
-/**
- * Copy all properties from `props` onto `obj`.
- * @param {object} obj Object onto which properties should be copied.
- * @param {object} props Object from which to copy properties.
- * @returns {object}
- * @private
- */
 export function extend(obj: any, props: any) {
-  for (let i in props) obj[i] = props[i];
-  return obj;
+    for (let i in props) obj[i] = props[i];
+    return obj;
 }
 
-/** Invoke or update a ref, depending on whether it is a function or object ref.
- *  @param {object|function} [ref=null]
- *  @param {any} [value]
- */
+export function clone(obj: any) {
+    return Object.assign({}, obj);
+}
+
 export function applyRef(ref: any, value: any) {
-  if (ref!=null) {
-    if (typeof ref=='function') ref(value);
-    else ref.current = value;
-  }
+    if (ref != null) {
+        if (typeof ref == 'function') ref(value);
+        else ref.current = value;
+    }
 }

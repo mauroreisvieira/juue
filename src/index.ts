@@ -1,7 +1,7 @@
 export { render } from './render';
 export {
-    createElement,
-    createElement as h,
+    h,
+    h as createElement,
     createRef,
     Fragment
 } from './create-element';

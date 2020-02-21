@@ -19,7 +19,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Headline isValid="sasa" />
+                <Headline isValid={true} />
                 <p>Lorem ipsum</p>
                 <ul>
                     <li>

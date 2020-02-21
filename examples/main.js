@@ -13,7 +13,7 @@ class Headline extends Component {
 class App extends Component {
   render() {
     return h("div", null, h(Headline, {
-      isValid: "sasa"
+      isValid: true
     }), h("p", null, "Lorem ipsum"), h("ul", null, h("li", null, h("a", {
       href: ""
     }, "anchor")), h("li", null, "More")), h("ol", null, h("li", null, "item")), h("button", {

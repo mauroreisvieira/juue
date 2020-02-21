@@ -1,6 +1,7 @@
+import { clone } from './util';
 import options from './options';
 
-export function createElement(type: any, props: any, ...args: any) {
+export function h(type: any, props: any, ...args: any) {
     const normalizedProps: any = {};
 
     for (const i in props) {
@@ -31,6 +32,21 @@ export function createRef() {
 
 export function Fragment(props: any) {
     return props.children;
+}
+
+export function getNodeProps(vnode: any) {
+  let props: any = clone(vnode.attributes),
+    c = vnode.children;
+  if (c) props.children = c;
+
+  let defaultProps = vnode.nodeName.defaultProps;
+  if (defaultProps) {
+    for (let i in defaultProps) {
+        props[i] = defaultProps[i];
+    }
+  }
+
+  return props;
 }
 
 export function createVNode(type: any, props: any, key: any, ref: any) {

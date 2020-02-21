@@ -17,7 +17,7 @@ export function createElement(type: any, props: any, ...args: any) {
         }
     }
 
-    return virtualNode(
+    return createVNode(
         type,
         normalizedProps,
         props && props.key,
@@ -33,8 +33,7 @@ export function Fragment(props: any) {
     return props.children;
 }
 
-
-export function virtualNode(type: any, props: any, key: any, ref: any) {
+export function createVNode(type: any, props: any, key: any, ref: any) {
     const vnode = {
         type,
         props,
@@ -45,4 +44,8 @@ export function virtualNode(type: any, props: any, key: any, ref: any) {
     if (options.vnode) options.vnode(vnode);
 
     return vnode;
+}
+
+export function createTextVNode(vnode: any, text: string) {
+    return vnode.appendChild(document.createTextNode(text));
 }

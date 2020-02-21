@@ -9,7 +9,7 @@ export function render(vnode: any, parentDom?: HTMLElement) {
         const element = new vnode.type();
         vnode = element.render();
     }
-    console.log(vnode.props);
+
     const node = document.createElement(vnode.type);
     const { children, ...reset } = vnode.props;
     const attributes = reset || {};

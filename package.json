@@ -1,7 +1,7 @@
 {
     "name": "@vivaldijs/vivaldi",
     "version": "0.1.0",
-    "description": "Easily generate themes for Sublime Text",
+    "description": "Lightweight Javascript View Framework",
     "module": "lib/index.esm",
     "main": "lib/index",
     "types": "types/index.d.ts",

@@ -12,6 +12,7 @@
     "license": "MIT",
     "scripts": {
         "dev": "rollup -c -w",
+        "start": "http-server .",
         "build": "rollup -c",
         "examples": "babel examples/main.jsx --out-dir examples",
         "prettier": "prettier --write \"src/*.ts?(x)\"",
